@@ -1,0 +1,16 @@
+on:
+  workflow_call:
+    inputs:
+      hostname:
+        description: "Run server benchmark using Apache ab tool"
+        default: "https://github.com/"
+        required: true
+        type: string
+
+jobs:
+  run-benchmark:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print the input name to STDOUT
+        run: echo The username is ${{ inputs.hostname }}
