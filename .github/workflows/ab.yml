@@ -1,0 +1,21 @@
+on:
+  workflow_call:
+    inputs:
+      hostname:
+        description: "Run server benchmark using Apache ab tool"
+        default: "https://github.com/"
+        required: true
+        type: string
+
+jobs:
+  run-benchmark:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y apache2-utils
+
+      - name: Run benchmark on ${{ inputs.hostname }}
+        run: ab -n 100 -c 10 ${{ inputs.hostname }}
