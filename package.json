@@ -1,0 +1,16 @@
+{
+  "name": "apache-ab-fun",
+  "version": "1.0.0",
+  "description": "Playing with Apache ab",
+  "scripts": {
+    "start": "ab -n 100 -c 10 github.com/ > ab-output.log && node ./app.js",
+    "start-long": "ab -n 1000 -c 100 github.com/ > ab-output.log && node ./app.js"
+  },
+  "precommit": "lint, test",
+  "engines": {
+    "node": "6.9.5"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
