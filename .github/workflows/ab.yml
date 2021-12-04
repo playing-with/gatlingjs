@@ -12,5 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print the input name to STDOUT
-        run: echo The username is ${{ inputs.hostname }}
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y apache2-utils
+
+      - name: Run benchmark on ${{ inputs.hostname }}
+        run: ab -n 100 -c 10 ${{ inputs.hostname }}
