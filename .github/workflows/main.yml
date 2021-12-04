@@ -22,8 +22,6 @@ jobs:
     steps:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.5.0
-        with:
-          cache: npm
 
       # Checks-out under $GITHUB_WORKSPACE
       - uses: actions/checkout@v2
