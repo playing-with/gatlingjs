@@ -24,12 +24,6 @@ jobs:
       cancel-in-progress: true
 
     steps:
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2.5.0
-
-      # Checks-out under $GITHUB_WORKSPACE
-      - uses: actions/checkout@v2
-
       - name: Install dependencies
         run: |
           sudo apt update
@@ -37,8 +31,4 @@ jobs:
 
       - name: Start short run
         run: |
-          npm run start
-
-      - name: Start long run
-        run: |
-          npm run start-long
+          ab -n 10000 -c 1000 github.com/
